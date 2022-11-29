@@ -1,5 +1,5 @@
 import { Resolvers } from 'generated/types'
-import { Context } from '../../../libs/context'
+import { Context } from 'libs/context'
 import { mutation } from './mutation'
 import { query } from './query'
 
