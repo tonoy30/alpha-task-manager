@@ -1,0 +1,6 @@
+generates:
+  generated/types.ts:
+    schema: 'services/**/schema.ts'
+    plugins:
+      - typescript
+      - typescript-resolvers
