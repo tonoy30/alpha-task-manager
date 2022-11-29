@@ -1,17 +1,22 @@
 import { gql } from 'apollo-server'
 
 export const typeDefs = gql`
+  enum TaskStatus {
+    Completed
+    Uncompleted
+  }
+
   type Task {
     id: ID!
     title: String!
-    status: Int!
+    status: TaskStatus
     order: Int!
   }
 
   type List {
     id: ID!
     title: String!
-    tasks: [Task]!
+    tasks: [Task!]!
   }
 
   input CreateListInput {
@@ -24,7 +29,7 @@ export const typeDefs = gql`
 
   input UpdateTaskInput {
     title: String!
-    status: Int!
+    status: String!
   }
 
   input MoveTaskInput {
@@ -37,7 +42,7 @@ export const typeDefs = gql`
   }
 
   type Query {
-    lists: [List!]!
+    lists: [List]!
   }
 
   type Mutation {

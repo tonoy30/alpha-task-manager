@@ -1,6 +1,12 @@
+import { Context } from '@libs/context'
 import { Resolvers } from 'generated/types'
-import { Context } from 'libs/context'
 
 export const query: Resolvers<Context>['Query'] = {
-
+  // NOTE: codegen and prisma datatype is not matched
+  lists: async (_parent, _args, ctx): Promise<any> =>
+    ctx.prisma.list.findMany({
+      include: {
+        tasks: true,
+      },
+    }),
 }
