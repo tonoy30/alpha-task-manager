@@ -9,7 +9,8 @@
     "db:migrate": "dotenv -- pnpm prisma migrate dev",
     "db:reset": "dotenv -- pnpm prisma migrate reset",
     "start": "dotenv -- ts-node .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "dotenv -- nodemon --watch libs --watch services -e ts --exec node --inspect -r ts-node/register index.ts"
   },
   "devDependencies": {
     "@graphql-codegen/cli": "2.8.1",
