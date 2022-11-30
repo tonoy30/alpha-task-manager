@@ -1,15 +1,36 @@
+import { List } from '@libs/model'
+import { CreateListInput } from 'generated/types'
+
 export const resolvers = {
   Query: {
-    lists: () => listData,
+    lists: () => queryData,
     pagedLists: (_parent: unknown, args: { skip: number; take?: number }) => {
       const { skip, take } = args
-      const list = listData.slice(skip, skip + (take ?? 2))
+      const list = queryData.slice(skip, skip + (take ?? 2))
       return list
     },
   },
+  Mutation: {
+    createList: (
+      _parent: unknown,
+      { title }: CreateListInput,
+      _ctx: unknown
+    ) => {
+      const newList = {
+        id: '1',
+        title,
+        tasks: [],
+      } as List
+      mutationData.push(newList)
+      return newList
+    },
+    createTask: () => {},
+    updateTask: () => {},
+    moveTask: () => {},
+  },
 }
 
-export const listData = [
+export const queryData: List[] = [
   {
     id: '9cb80d31-49ed-4e6b-9eea-78f0b8a04eb8',
     title: 'List 1',
@@ -155,3 +176,4 @@ export const listData = [
     ],
   },
 ]
+export const mutationData: List[] = []
