@@ -39,6 +39,7 @@ export const typeDefs = gql`
 
   type Query {
     lists: [List!]!
+    pagedLists(skip: Int!, take: Int): [List!]!
   }
 
   type Mutation {
