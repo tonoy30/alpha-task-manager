@@ -5,7 +5,7 @@ export const typeDefs = gql`
     id: ID!
     title: String!
     status: String!
-    order: Int!
+    position: Int!
   }
 
   type List {
@@ -20,6 +20,7 @@ export const typeDefs = gql`
 
   input CreateTaskInput {
     title: String!
+    position: Int!
   }
 
   input UpdateTaskInput {

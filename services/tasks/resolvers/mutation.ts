@@ -29,22 +29,25 @@ export const mutation: Resolvers<Context>['Mutation'] = {
   },
 
   moveTask: async (_parent, { id, input }, ctx) => {
-    const { listId } = input
+    const { listId, currentPosition } = input
     const tasks = await ctx.prisma.task.findMany({
       where: {
         listId,
+      },
+      orderBy: {
+        position: 'desc',
       },
     })
     const fromIndex = tasks.findIndex((task: Task) => task.id === id)
     if (fromIndex !== -1) {
       for (let i = fromIndex; i < tasks.length; i++) {
-        const currTask = tasks[i]
+        const { id: taskId } = tasks[i]
         await ctx.prisma.task.update({
           where: {
-            id: currTask.id,
+            id: taskId,
           },
           data: {
-            order: currTask.order + 1,
+            position: taskId === id ? currentPosition : i,
           },
         })
       }

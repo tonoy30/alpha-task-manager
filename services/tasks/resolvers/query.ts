@@ -7,7 +7,7 @@ export const query: Resolvers<Context>['Query'] = {
       include: {
         tasks: {
           orderBy: {
-            order: 'desc',
+            position: 'desc',
           },
         },
       },

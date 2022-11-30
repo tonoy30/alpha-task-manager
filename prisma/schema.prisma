@@ -21,12 +21,12 @@ model List {
 }
 
 model Task {
-  id     String     @id @default(uuid())
-  title  String
-  status TaskStatus @default(Uncompleted)
-  order  Int        @default(autoincrement())
-  List   List?      @relation(fields: [listId], references: [id])
-  listId String?
+  id       String     @id @default(uuid())
+  title    String
+  status   TaskStatus @default(Uncompleted)
+  position Int
+  List     List?      @relation(fields: [listId], references: [id])
+  listId   String?
 }
 
 enum TaskStatus {
