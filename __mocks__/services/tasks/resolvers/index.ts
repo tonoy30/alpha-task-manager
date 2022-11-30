@@ -1,32 +1,25 @@
+import { MockContext } from '@libs/context'
 import { List } from '@libs/model'
-import { CreateListInput } from 'generated/types'
+import { Resolvers } from 'generated/types'
 
-export const resolvers = {
+export const resolvers: Resolvers<MockContext> = {
+  Mutation: {
+    createList: (_parent: unknown, { input }, ctx) => {
+      const newList = {
+        id: '1',
+        title: input.title,
+      } as List
+      ctx.prisma.list.create.mockResolvedValue(newList)
+      return newList
+    },
+  },
   Query: {
-    lists: () => queryData,
-    pagedLists: (_parent: unknown, args: { skip: number; take?: number }) => {
+    lists: (_parent, _args, _ctx) => queryData,
+    pagedLists: (_parent, args, _ctx) => {
       const { skip, take } = args
       const list = queryData.slice(skip, skip + (take ?? 2))
       return list
     },
-  },
-  Mutation: {
-    createList: (
-      _parent: unknown,
-      { title }: CreateListInput,
-      _ctx: unknown
-    ) => {
-      const newList = {
-        id: '1',
-        title,
-        tasks: [],
-      } as List
-      mutationData.push(newList)
-      return newList
-    },
-    createTask: () => {},
-    updateTask: () => {},
-    moveTask: () => {},
   },
 }
 

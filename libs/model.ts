@@ -1,7 +1,7 @@
 export type List = {
   id: string
   title: string
-  tasks: Task[]
+  tasks?: Task[]
 }
 
 export type Task = {
