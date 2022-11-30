@@ -16,6 +16,8 @@
     "@graphql-codegen/cli": "2.8.1",
     "@graphql-codegen/typescript": "2.7.1",
     "@graphql-codegen/typescript-resolvers": "2.7.1",
+    "@graphql-tools/mock": "^8.7.12",
+    "@graphql-tools/schema": "8.5.0",
     "@types/express": "4.17.13",
     "@types/jest": "^29.2.3",
     "@types/node": "^18.11.9",
@@ -31,7 +33,6 @@
   },
   "dependencies": {
     "@graphql-tools/merge": "8.3.0",
-    "@graphql-tools/schema": "8.5.0",
     "@graphql-tools/stitch": "8.7.0",
     "@graphql-tools/stitching-directives": "2.3.0",
     "@graphql-tools/utils": "8.8.0",

@@ -26,6 +26,7 @@
     "strictPropertyInitialization": false,
     "paths": {
       "@libs/*": ["libs/*"],
+      "@services/*": ["services/*"],
     }
   },
   "exclude": ["node_modules"]
