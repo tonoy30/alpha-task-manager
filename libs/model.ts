@@ -9,4 +9,5 @@ export type Task = {
   position: number
   title: string
   status: string
+  listId: string
 }

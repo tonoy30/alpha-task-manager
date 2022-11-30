@@ -3,6 +3,7 @@ import { gql } from 'apollo-server'
 export const typeDefs = gql`
   type Task {
     id: ID!
+    listId: ID
     title: String!
     status: String!
     position: Int!
