@@ -195,7 +195,7 @@ describe('Testing Task and List Mutations', () => {
       response?.data?.updateTask
     )
   })
-  it('should fail if task not found', async () => {
+  it('should update task fail if task not found', async () => {
     const task = {
       id: 'throwerror',
       listId: '0',
