@@ -23,7 +23,10 @@
     "noEmit": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
-    "strictPropertyInitialization": false
+    "strictPropertyInitialization": false,
+    "paths": {
+      "@libs/*": ["libs/*"],
+    }
   },
   "exclude": ["node_modules"]
 }

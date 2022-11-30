@@ -12,3 +12,24 @@ model User {
   username String
   password String
 }
+
+// One list has many task: one-to-many
+model List {
+  id    String @id @default(uuid())
+  title String
+  tasks Task[]
+}
+
+model Task {
+  id       String     @id @default(uuid())
+  title    String
+  status   TaskStatus @default(Uncompleted)
+  position Int
+  List     List?      @relation(fields: [listId], references: [id])
+  listId   String?
+}
+
+enum TaskStatus {
+  Completed
+  Uncompleted
+}
