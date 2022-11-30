@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Testing Task and List Queries fetches all the lists 1`] = `
+exports[`Testing Task and List Queries should fetches all the lists 1`] = `
 {
   "data": {
     "lists": [
@@ -160,7 +160,7 @@ exports[`Testing Task and List Queries fetches all the lists 1`] = `
 }
 `;
 
-exports[`Testing Task and List Queries fetches first 2 list 1`] = `
+exports[`Testing Task and List Queries should fetches first 2 list 1`] = `
 {
   "data": {
     "pagedLists": [
