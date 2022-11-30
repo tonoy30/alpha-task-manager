@@ -1,14 +1,15 @@
 import { Context } from '@libs/context'
-import { Task, TaskStatus } from '@prisma/client'
+import { Task } from '@prisma/client'
 import { Resolvers } from 'generated/types'
+import { getStatus } from '../../../utils/status.util'
 
 export const mutation: Resolvers<Context>['Mutation'] = {
   createList: async (_parent, { input }, ctx) =>
-    ctx.prisma.list.create({ data: input }),
+    await ctx.prisma.list.create({ data: input }),
 
   createTask: async (_parent, { listId, input }, ctx) => {
     const data = { ...input, listId }
-    return ctx.prisma.task.create({ data })
+    return await ctx.prisma.task.create({ data })
   },
 
   updateTask: async (_parent, { id, input }, ctx) => {
@@ -24,7 +25,8 @@ export const mutation: Resolvers<Context>['Mutation'] = {
         },
       })
     } catch (err) {
-      throw Error('task is not found')
+      console.error(err)
+      throw new Error('unable to update task!')
     }
   },
 
@@ -52,19 +54,10 @@ export const mutation: Resolvers<Context>['Mutation'] = {
         })
       }
     }
-    return ctx.prisma.task.findUnique({
+    return await ctx.prisma.task.findUnique({
       where: {
         id,
       },
     })
   },
-}
-
-const getStatus = (status: string) => {
-  switch (status) {
-    case 'Completed':
-      return TaskStatus.Completed
-    default:
-      return TaskStatus.Uncompleted
-  }
 }

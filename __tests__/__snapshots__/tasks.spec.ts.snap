@@ -1,0 +1,249 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing Task and List Queries should fetches all the lists 1`] = `
+{
+  "data": {
+    "lists": [
+      {
+        "id": "9cb80d31-49ed-4e6b-9eea-78f0b8a04eb8",
+        "tasks": [
+          {
+            "id": "bb97eb77-26d2-4d50-bfb9-a50003aabf25",
+            "position": 4,
+            "status": "Uncompleted",
+            "title": "Task 4",
+          },
+          {
+            "id": "6dda2e6f-4b58-4031-bff1-8cfe810dc77e",
+            "position": 3,
+            "status": "Uncompleted",
+            "title": "Task 3",
+          },
+          {
+            "id": "d26423b6-80a1-455b-98e9-8f4bd068f2b7",
+            "position": 2,
+            "status": "Uncompleted",
+            "title": "Task 2",
+          },
+          {
+            "id": "8d995d0b-5de3-406e-8b7d-2e50f5f27274",
+            "position": 1,
+            "status": "Uncompleted",
+            "title": "Task 1",
+          },
+          {
+            "id": "528f55d5-3cb0-468b-a503-be21493c986b",
+            "position": 0,
+            "status": "Uncompleted",
+            "title": "Task 0",
+          },
+        ],
+        "title": "List 1",
+      },
+      {
+        "id": "9cb80d31-49ed-4e6b-9eea-78f0b8a04eb9",
+        "tasks": [
+          {
+            "id": "bb97eb77-26d2-4d50-bfb9-a50003aabf25",
+            "position": 4,
+            "status": "Uncompleted",
+            "title": "Task 4",
+          },
+          {
+            "id": "6dda2e6f-4b58-4031-bff1-8cfe810dc77e",
+            "position": 3,
+            "status": "Uncompleted",
+            "title": "Task 3",
+          },
+          {
+            "id": "d26423b6-80a1-455b-98e9-8f4bd068f2b7",
+            "position": 2,
+            "status": "Uncompleted",
+            "title": "Task 2",
+          },
+          {
+            "id": "8d995d0b-5de3-406e-8b7d-2e50f5f27274",
+            "position": 1,
+            "status": "Uncompleted",
+            "title": "Task 1",
+          },
+          {
+            "id": "528f55d5-3cb0-468b-a503-be21493c986b",
+            "position": 0,
+            "status": "Uncompleted",
+            "title": "Task 0",
+          },
+        ],
+        "title": "List 2",
+      },
+      {
+        "id": "9cb80d31-49ed-4e6b-9eea-78f0b8a04e10",
+        "tasks": [
+          {
+            "id": "bb97eb77-26d2-4d50-bfb9-a50003aabf25",
+            "position": 4,
+            "status": "Uncompleted",
+            "title": "Task 4",
+          },
+          {
+            "id": "6dda2e6f-4b58-4031-bff1-8cfe810dc77e",
+            "position": 3,
+            "status": "Uncompleted",
+            "title": "Task 3",
+          },
+          {
+            "id": "d26423b6-80a1-455b-98e9-8f4bd068f2b7",
+            "position": 2,
+            "status": "Uncompleted",
+            "title": "Task 2",
+          },
+          {
+            "id": "8d995d0b-5de3-406e-8b7d-2e50f5f27274",
+            "position": 1,
+            "status": "Uncompleted",
+            "title": "Task 1",
+          },
+          {
+            "id": "528f55d5-3cb0-468b-a503-be21493c986b",
+            "position": 0,
+            "status": "Uncompleted",
+            "title": "Task 0",
+          },
+        ],
+        "title": "List 3",
+      },
+      {
+        "id": "9cb80d31-49ed-4e6b-9eea-78f0b8a04e11",
+        "tasks": [
+          {
+            "id": "bb97eb77-26d2-4d50-bfb9-a50003aabf25",
+            "position": 4,
+            "status": "Uncompleted",
+            "title": "Task 4",
+          },
+          {
+            "id": "6dda2e6f-4b58-4031-bff1-8cfe810dc77e",
+            "position": 3,
+            "status": "Uncompleted",
+            "title": "Task 3",
+          },
+          {
+            "id": "d26423b6-80a1-455b-98e9-8f4bd068f2b7",
+            "position": 2,
+            "status": "Uncompleted",
+            "title": "Task 2",
+          },
+          {
+            "id": "8d995d0b-5de3-406e-8b7d-2e50f5f27274",
+            "position": 1,
+            "status": "Uncompleted",
+            "title": "Task 1",
+          },
+          {
+            "id": "528f55d5-3cb0-468b-a503-be21493c986b",
+            "position": 0,
+            "status": "Uncompleted",
+            "title": "Task 0",
+          },
+        ],
+        "title": "List 4",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": {
+    "headers": Headers {
+      Symbol(map): {},
+    },
+  },
+}
+`;
+
+exports[`Testing Task and List Queries should fetches first 2 list 1`] = `
+{
+  "data": {
+    "pagedLists": [
+      {
+        "id": "9cb80d31-49ed-4e6b-9eea-78f0b8a04eb8",
+        "tasks": [
+          {
+            "id": "bb97eb77-26d2-4d50-bfb9-a50003aabf25",
+            "position": 4,
+            "status": "Uncompleted",
+            "title": "Task 4",
+          },
+          {
+            "id": "6dda2e6f-4b58-4031-bff1-8cfe810dc77e",
+            "position": 3,
+            "status": "Uncompleted",
+            "title": "Task 3",
+          },
+          {
+            "id": "d26423b6-80a1-455b-98e9-8f4bd068f2b7",
+            "position": 2,
+            "status": "Uncompleted",
+            "title": "Task 2",
+          },
+          {
+            "id": "8d995d0b-5de3-406e-8b7d-2e50f5f27274",
+            "position": 1,
+            "status": "Uncompleted",
+            "title": "Task 1",
+          },
+          {
+            "id": "528f55d5-3cb0-468b-a503-be21493c986b",
+            "position": 0,
+            "status": "Uncompleted",
+            "title": "Task 0",
+          },
+        ],
+        "title": "List 1",
+      },
+      {
+        "id": "9cb80d31-49ed-4e6b-9eea-78f0b8a04eb9",
+        "tasks": [
+          {
+            "id": "bb97eb77-26d2-4d50-bfb9-a50003aabf25",
+            "position": 4,
+            "status": "Uncompleted",
+            "title": "Task 4",
+          },
+          {
+            "id": "6dda2e6f-4b58-4031-bff1-8cfe810dc77e",
+            "position": 3,
+            "status": "Uncompleted",
+            "title": "Task 3",
+          },
+          {
+            "id": "d26423b6-80a1-455b-98e9-8f4bd068f2b7",
+            "position": 2,
+            "status": "Uncompleted",
+            "title": "Task 2",
+          },
+          {
+            "id": "8d995d0b-5de3-406e-8b7d-2e50f5f27274",
+            "position": 1,
+            "status": "Uncompleted",
+            "title": "Task 1",
+          },
+          {
+            "id": "528f55d5-3cb0-468b-a503-be21493c986b",
+            "position": 0,
+            "status": "Uncompleted",
+            "title": "Task 0",
+          },
+        ],
+        "title": "List 2",
+      },
+    ],
+  },
+  "errors": undefined,
+  "extensions": undefined,
+  "http": {
+    "headers": Headers {
+      Symbol(map): {},
+    },
+  },
+}
+`;
