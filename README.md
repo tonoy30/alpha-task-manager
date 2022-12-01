@@ -35,10 +35,12 @@ Make sure you have these tools installed
 
 This is the instruction to setup this project and run in your local machine. Note that this instruction uses `pnpm` as a package manager. You may replace these commands corresponding to your package manager.
 
-1. Copy `.env.example` file and rename it to `.env`.
-2. Install dependencies.
-3. Run `docker compose up -d` to start docker containers in background.
+1. Copy `.env.example` file and rename it to `.env`. You can modified `.env` file according to your requirement.
+2. Run `pnpm i` to install dependencies.
+3. Run `docker compose up --build -d` to start docker containers in background.
 4. Run `pnpm db:migrate` to initiate database.
-5. Run `pnpm codegen` to generate TypeScript definition for GraphQL and Prisma client.
-6. Run `pnpm start` to start the project.
-7. Go to `http://localhost:4000`, you should see Apollo Playground with two queries `users` and `user`. You may change the port according to `GATEWAY_PORT` in your `.env` file.
+5. Run `pnpm codegen` to generate `TypeScript` definition for `GraphQL` and `Prisma` client.
+6. Run `pnpm db:seed` to seeding the database using `datasources/list.ts`
+7. Run `pnpm start` to start the project or `pnpm dev` to start the project in watch mode.
+8. Go to `http://localhost:4000`, you should see Apollo Playground with four queries `lists`, `pagedLists`, `users` and `user`. You may change the port according to `GATEWAY_PORT` in your `.env` file.
+9. Run `pnpm test` to start testing or `pnpm test:watch` to start testing in watch mode
