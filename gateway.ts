@@ -1,9 +1,9 @@
-import { fetch } from 'cross-fetch'
 import { stitchSchemas } from '@graphql-tools/stitch'
 import { stitchingDirectives } from '@graphql-tools/stitching-directives'
-import { pruneSchema, filterSchema } from '@graphql-tools/utils'
+import { filterSchema, pruneSchema } from '@graphql-tools/utils'
 import { introspectSchema } from '@graphql-tools/wrap'
 import { ApolloServer } from 'apollo-server'
+import { fetch } from 'cross-fetch'
 import { GraphQLSchema, print } from 'graphql'
 
 function createRemoteExecutor(uri: string) {
@@ -22,11 +22,18 @@ async function createSubSchemas() {
   const userExecutor = createRemoteExecutor(
     `http://localhost:${process.env.USER_SERVICE_PORT}`
   )
+  const taskExecutor = createRemoteExecutor(
+    `http://localhost:${process.env.TASK_SERVICE_PORT}`
+  )
 
   return Promise.all([
     {
       schema: await introspectSchema(userExecutor),
       executor: userExecutor,
+    },
+    {
+      schema: await introspectSchema(taskExecutor),
+      executor: taskExecutor,
     },
   ])
 }
