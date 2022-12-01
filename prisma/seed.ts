@@ -4,13 +4,16 @@ import { prisma } from '../libs/prisma'
 
 async function main() {
   for (const list of listData) {
-    const tasks = list.tasks?.map(task => {id: task.id})
+    const tasks = list.tasks?.map(({ title, status, position }) => ({
+      title,
+      status,
+      position,
+    }))
     await prisma.list.create({
       data: {
-        id: list.id,
         title: list.title,
         tasks: {
-          create: list.tasks ? (list.tasks as Task[]) : [],
+          create: list.tasks ? (tasks as Task[]) : [],
         },
       },
     })
