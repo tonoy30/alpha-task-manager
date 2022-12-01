@@ -10,7 +10,8 @@
     "db:reset": "dotenv -- pnpm prisma migrate reset",
     "db:seed": "dotenv -- ts-node prisma/seed.ts",
     "start": "dotenv -- ts-node .",
-    "test": "dotenv -- jest --watch --config jest.config.ts ./__tests__",
+    "test": "dotenv -- jest --config jest.config.ts ./__tests__",
+    "test:watch": "dotenv -- jest --watch --config jest.config.ts ./__tests__",
     "dev": "dotenv -- nodemon --watch libs --watch services -e ts --exec node --inspect -r ts-node/register index.ts"
   },
   "devDependencies": {
