@@ -25,7 +25,7 @@ model Task {
   title    String
   status   TaskStatus @default(Uncompleted)
   position Int
-  List     List?      @relation(fields: [listId], references: [id])
+  List     List?      @relation(fields: [listId], references: [id], onDelete: Cascade)
   listId   String?
 }
 
