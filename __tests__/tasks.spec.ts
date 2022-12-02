@@ -48,6 +48,14 @@ const createListMutation = gql`
     }
   }
 `
+const deleteListMutation = gql`
+  mutation DeleteList($deleteListId: ID!) {
+    deleteList(id: $deleteListId) {
+      success
+    }
+  }
+`
+
 const createTaskMutation = gql`
   mutation CreateTask($listId: ID!, $createTaskInput: CreateTaskInput!) {
     createTask(listId: $listId, input: $createTaskInput) {
@@ -70,7 +78,7 @@ const updateTaskMutation = gql`
     }
   }
 `
-const MoveTaskMutation = gql`
+const moveTaskMutation = gql`
   mutation MoveTask($moveTaskId: ID!, $moveTaskInput: MoveTaskInput!) {
     moveTask(id: $moveTaskId, input: $moveTaskInput) {
       id
@@ -78,6 +86,14 @@ const MoveTaskMutation = gql`
       title
       status
       position
+    }
+  }
+`
+
+const deletedTaskMutation = gql`
+  mutation DeleteTask($deleteTaskId: ID!) {
+    deleteTask(id: $deleteTaskId) {
+      success
     }
   }
 `
@@ -147,6 +163,15 @@ describe('Testing Task and List Mutations', () => {
     await expect(createList(list, ctx)).resolves.toEqual(
       response?.data?.createList
     )
+  })
+  it('should delete list', async () => {
+    const response = await testSever.executeOperation({
+      query: deleteListMutation,
+      variables: {
+        deleteListId: '1',
+      },
+    })
+    checkResponse(response)
   })
   it('should create task', async () => {
     const task = {
@@ -233,7 +258,7 @@ describe('Testing Task and List Mutations', () => {
       status: 'Completed',
     } as Task
     const response = await testSever.executeOperation({
-      query: MoveTaskMutation,
+      query: moveTaskMutation,
       variables: {
         moveTaskId: task.id,
         moveTaskInput: {
@@ -248,6 +273,15 @@ describe('Testing Task and List Mutations', () => {
       response?.data?.moveTask
     )
   })
+  it('should delete task', async () => {
+    const response = await testSever.executeOperation({
+      query: deletedTaskMutation,
+      variables: {
+        deleteTaskId: '1',
+      },
+    })
+    checkResponse(response)
+  })
 })
 
 const checkResponse = (response: any) => {
@@ -261,6 +295,7 @@ const createList = async (list: List, ctx: Context) => {
     data: list,
   })
 }
+
 const createTask = async (data: Task, ctx: Context) => {
   return await ctx.prisma.task.create({
     data,
