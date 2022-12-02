@@ -14,7 +14,7 @@ You will be getting involved on this! We have setting up user service to manage 
 - [x] Create a new task in a list (the task should be prepended to the list and the
       status should indicate it has not been completed)
 - [x] Update a task (title and status)
-- [ ] Delete a task or list `(not mentioned in the shared pdf)`
+- [x] Delete a task or list
 - [x] Move a task to a specific position in the list
 - [x] Retrieve all lists and their tasks
 
