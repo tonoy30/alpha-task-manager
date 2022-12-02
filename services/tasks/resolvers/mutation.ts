@@ -7,7 +7,7 @@ export const mutation: Resolvers<Context>['Mutation'] = {
   createList: async (_parent, { input }, ctx) =>
     await ctx.prisma.list.create({ data: input }),
 
-  deleteTask: async (_parent, { id }, ctx) => {
+  deleteList: async (_parent, { id }, ctx) => {
     const deletedList = await ctx.prisma.list.delete({
       where: {
         id,
@@ -77,7 +77,7 @@ export const mutation: Resolvers<Context>['Mutation'] = {
       },
     })
   },
-  deleteList: async (_parent, { id }, ctx) => {
+  deleteTask: async (_parent, { id }, ctx) => {
     const deletedTask = await ctx.prisma.task.delete({
       where: {
         id,
