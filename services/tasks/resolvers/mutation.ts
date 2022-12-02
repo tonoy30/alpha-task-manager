@@ -8,16 +8,23 @@ export const mutation: Resolvers<Context>['Mutation'] = {
     await ctx.prisma.list.create({ data: input }),
 
   deleteList: async (_parent, { id }, ctx) => {
-    const deletedList = await ctx.prisma.list.delete({
-      where: {
-        id,
-      },
-    })
-    if (deletedList) {
-      return {
-        success: true,
+    try {
+      const deletedList = await ctx.prisma.list.delete({
+        where: {
+          id,
+        },
+      })
+      if (deletedList) {
+        return {
+          success: true,
+        }
+      } else {
+        return {
+          success: false,
+        }
       }
-    } else {
+    } catch (error) {
+      console.error(error)
       return {
         success: false,
       }
@@ -78,16 +85,23 @@ export const mutation: Resolvers<Context>['Mutation'] = {
     })
   },
   deleteTask: async (_parent, { id }, ctx) => {
-    const deletedTask = await ctx.prisma.task.delete({
-      where: {
-        id,
-      },
-    })
-    if (deletedTask) {
-      return {
-        success: true,
+    try {
+      const deletedTask = await ctx.prisma.task.delete({
+        where: {
+          id,
+        },
+      })
+      if (deletedTask) {
+        return {
+          success: true,
+        }
+      } else {
+        return {
+          success: false,
+        }
       }
-    } else {
+    } catch (error) {
+      console.error(error)
       return {
         success: false,
       }
