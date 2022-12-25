@@ -1,6 +1,4 @@
-# Brikl backend engineer assignment
-
-## Introducing the Alpha
+# Introducing the Alpha
 
 Alpha is the new startup company we are developing a cutting edge task management system with modern technology.
 
